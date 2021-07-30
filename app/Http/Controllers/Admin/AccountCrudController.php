@@ -21,6 +21,7 @@ class AccountCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -29,7 +30,16 @@ class AccountCrudController extends CrudController
      */
 
     // protected $userRepository;
-
+    protected function setupReorderOperation()
+    {
+        // define which model attribute will be shown on draggable elements 
+        $this->crud->set('reorder.label', 'name');
+        // define how deep the admin is allowed to nest the items
+        // for infinite levels, set it to 0
+        $this->crud->set('reorder.max_level', 5);
+        // $this->crud->isReorderEnabled();
+    }
+    
     public function setup()
     {   
         // call repository
@@ -38,6 +48,8 @@ class AccountCrudController extends CrudController
         CRUD::setModel(\App\Models\Account::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/account');
         CRUD::setEntityNameStrings('account', 'accounts');
+        // $this->crud->enableReorder();
+        
     }
 
     /**
@@ -77,11 +89,6 @@ class AccountCrudController extends CrudController
                 'name' => 'bank_branch',
                 'type' => 'text',
                 'label' => 'Bank Branch',
-            ],
-            [
-                'name' => 'billing_address',
-                'type' => 'address',
-                'label' => 'Billing Address',
             ],
             [
                 'name' => 'phone',
@@ -158,6 +165,14 @@ class AccountCrudController extends CrudController
                 'wrapper' => ['class'=>'col-md-6 form-group'],
            ],
            [
+                'name' => 'parent_id',
+                'type' => 'select2',
+                'entity' => 'accounts',
+                'attribute' => 'bank_branch',
+                'label' => 'Parent Account',
+                'wrapper' => ['class'=>'col-md-6 form-group'],
+           ],
+           [
                 'name' => 'phone',
                 'type' => 'number',
                 'label' => 'Phone',
@@ -165,7 +180,7 @@ class AccountCrudController extends CrudController
            ],
            [
                 'name' => 'address',
-                'type' => 'text',
+                'type' => 'address',
                 'label' => 'Address',
                 'wrapper' => ['class'=>'col-md-6 form-group'],
            ],
@@ -177,14 +192,8 @@ class AccountCrudController extends CrudController
            ],
            [
                 'name' => 'valid_until',
-                'type' => 'date',
+                'type' => 'date_picker',
                 'label' => 'Valid Until',
-                'wrapper' => ['class'=>'col-md-6 form-group'],
-            ],
-            [
-                'name' => 'billing_address',
-                'type' => 'Address',
-                'label' => 'Billing Address',
                 'wrapper' => ['class'=>'col-md-6 form-group'],
             ],
             [
@@ -229,7 +238,7 @@ class AccountCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-
+    
     // public function index()
     // {
     //     $users = $this->userRepository->all();

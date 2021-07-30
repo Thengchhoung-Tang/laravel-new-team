@@ -2,18 +2,22 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManagerStatic as Image;
 use Kalnoy\Nestedset\NodeTrait;
+use App\Models\Traits\ParentDepthTrait;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Traits\ReorderDepthTrait;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class Account extends Model
 {
     use CrudTrait;
     use NodeTrait;
-
+    use ParentDepthTrait;
+    use ReorderDepthTrait;
+    
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
@@ -42,6 +46,10 @@ class Account extends Model
     public function users()
     {
         return $this->belongsTo('App\Models\User', 'account_number');
+    }
+    public function accounts()
+    {
+        return $this->belongsTo('App\Models\Account', 'parent_id');
     }
     /*
     |--------------------------------------------------------------------------
