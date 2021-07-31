@@ -180,12 +180,6 @@ class AccountCrudController extends CrudController
                 'wrapper' => ['class'=>'col-md-6 form-group'],
            ],
            [
-                'name' => 'address',
-                'type' => 'address',
-                'label' => 'Address',
-                'wrapper' => ['class'=>'col-md-6 form-group'],
-           ],
-           [
                 'name' => 'email',
                 'type' => 'email',
                 'label' => 'Email',
@@ -195,6 +189,12 @@ class AccountCrudController extends CrudController
                 'name' => 'valid_until',
                 'type' => 'date_picker',
                 'label' => 'Valid Until',
+                'wrapper' => ['class'=>'col-md-6 form-group'],
+            ],
+            [
+                'name' => 'address',
+                'type' => 'newaddress',
+                'label' => 'Address',
                 'wrapper' => ['class'=>'col-md-6 form-group'],
             ],
             [
