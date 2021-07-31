@@ -60,6 +60,7 @@ class AccountCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        // dd((new Account)->accountDescentdent());
         // CRUD::setFromDb(); // columns
         // Account::
         $this->crud->addColumns([
@@ -174,7 +175,7 @@ class AccountCrudController extends CrudController
            ],
            [
                 'name' => 'phone',
-                'type' => 'number',
+                'type' => 'phone',
                 'label' => 'Phone',
                 'wrapper' => ['class'=>'col-md-6 form-group'],
            ],

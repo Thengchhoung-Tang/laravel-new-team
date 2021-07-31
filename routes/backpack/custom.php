@@ -18,4 +18,7 @@ Route::group([
     Route::crud('account', 'AccountCrudController');
     Route::crud('news', 'NewsCrudController');
     Route::get('charts/weekly-users', 'Charts\WeeklyUsersChartController@response')->name('charts.weekly-users.index');
+    Route::namespace('API')->name('web-api.')->prefix('api')->group(function () {
+        Route::apiResource('address', 'Addresses\AddressController')->only(['index']);
+    });
 }); // this should be the absolute last line of this file

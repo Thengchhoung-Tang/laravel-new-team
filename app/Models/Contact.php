@@ -46,7 +46,10 @@ class Contact extends Authenticatable
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function accounts()
+    {
+        return $this->belongsTo('App\Models\Account', 'owner_account_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

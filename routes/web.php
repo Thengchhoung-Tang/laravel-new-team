@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// Route Languages
 Route::get('lang/{locale}', function ($locale) {
     session()->put('locale', $locale);    
     return redirect()->back();

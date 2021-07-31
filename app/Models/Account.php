@@ -16,7 +16,6 @@ class Account extends Model
     use CrudTrait;
     use NodeTrait;
     use ParentDepthTrait;
-    use ReorderDepthTrait;
     
     /*
     |--------------------------------------------------------------------------
@@ -109,6 +108,13 @@ class Account extends Model
             $public_destination_path = Str::replaceFirst('public/', '', $destination_path);
             $this->attributes[$attribute_name] = $public_destination_path . '/' . $filename;
         }
+    }
+
+    public function accountDescentdent()
+    {
+        $data = $this->find(14);
+        $descendants = $data->descendants;
+        return $descendants->push($data);
     }
 
     public static function boot()
