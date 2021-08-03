@@ -113,8 +113,9 @@ class Account extends Model
     public function accountDescentdent()
     {
         $data = $this->find(14);
-        $descendants = $data->descendants;
+        $descendants = $data->ancestors;
         return $descendants->push($data);
+        // return $data;
     }
 
     public static function boot()

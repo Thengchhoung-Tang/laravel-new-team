@@ -173,7 +173,7 @@ class ContactCrudController extends CrudController
                 'type' => 'select2',
                 'entity' => 'accounts',
                 'attribute' => 'name',
-                'label' => 'Account Owner',
+                'label' => 'Account Name',
                 'wrapper' => ['class'=>'col-md-6 form-group'],
                 'tab' => 'Contact Info',
             ],

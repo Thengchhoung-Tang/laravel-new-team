@@ -24,7 +24,7 @@
         <div class="container-fluid bg-gray-100 dark:bg-gray-900">
             <div class="row">
                 <div class="col-md-6 mt-4">
-                    <h1 class="fw-bold text-decoration-underline" style="color: rgb(209, 18, 18)"><b>WELCOME BACK Tobi</b></h1>
+                    <h1 class="fw-bold text-decoration-underline" style="color: rgb(209, 18, 18)"><b>WELCOME BACK Tobi <img style="width:50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Mangekyou_Sharingan_Kakashi.svg/1024px-Mangekyou_Sharingan_Kakashi.svg.png"/></b></h1>
                 </div>
                 <div class="col-md-6 mt-4">
                     <div align="right">

@@ -73,7 +73,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Tobi</b>',
+    'project_logo'   => '<img style="width:37px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Mangekyou_Sharingan_Kakashi.svg/1024px-Mangekyou_Sharingan_Kakashi.svg.png"/>&nbsp;<b style="color:red">Tobi</b>',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
